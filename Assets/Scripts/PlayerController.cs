@@ -58,6 +58,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle")) 
+        { 
+            PlayerDeath();
+        }
+    }
+
+    void PlayerDeath()
+    {
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        GameManager.instance.GameOver();
+    }
+
     bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.BoxCast(bc.bounds.center,

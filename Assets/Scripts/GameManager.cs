@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,11 @@ public class GameManager : MonoBehaviour
     public float worldScrollingSpeed = 0.2f;
 
     public Text scoreText;
+
+    public bool inGame;
+
+    public GameObject restartButton;
+
     float score;
 
     // Start is called before the first frame update
@@ -19,9 +25,33 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        InitializeGame();
     }
+
+    void InitializeGame()
+    {
+        inGame = true;
+    }
+
+    public void GameOver()
+    {
+        inGame = false;
+        restartButton.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     private void FixedUpdate()
     {
+        if (GameManager.instance.inGame == false) { return; }
+
+        if((int)score % 100 == 0)
+        {
+            worldScrollingSpeed += 0.001f;
+        }
         score += worldScrollingSpeed;
         UpdateScore();
     }
