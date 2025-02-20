@@ -16,8 +16,10 @@ public class GameManager : MonoBehaviour
     public bool inGame;
 
     public GameObject restartButton;
+    public GameObject menuButton;
 
     public Immortality immortality;
+    public Magnet magnet;
 
     float score;
     int coins;
@@ -45,17 +47,25 @@ public class GameManager : MonoBehaviour
             coins = 0;
         }
         coinsText.text = coins.ToString();
+
+        immortality.isActive = false;
+        magnet.isActive = false;
     }
 
     public void GameOver()
     {
         inGame = false;
         restartButton.SetActive(true);
+        menuButton.SetActive(true);
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Game");
+    }
+    public void BackToMenuGame()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     private void FixedUpdate()
@@ -107,5 +117,20 @@ public class GameManager : MonoBehaviour
     {
         immortality.isActive = false;
         worldScrollingSpeed -= immortality.GetSpeed();
+    }
+
+    public void MagnetCollected()
+    {
+        if (magnet.isActive) {
+            CancelMagnet();
+            CancelInvoke("CancelMagnet");
+        }
+
+        magnet.isActive = true;
+        Invoke("CancelMagnet", magnet.GetDuration());
+    }
+    void CancelMagnet()
+    {
+        magnet.isActive = false;
     }
 }

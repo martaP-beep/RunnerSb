@@ -72,9 +72,15 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Immortality"))
         {
-            Debug.Log("Z³apany");
+           
             Destroy(collision.gameObject);
             GameManager.instance.ImmortalityCollected();
+        }
+        else if (collision.gameObject.CompareTag("Magnet"))
+        {
+
+            Destroy(collision.gameObject);
+            GameManager.instance.MagnetCollected();
         }
 
     }
