@@ -1489,7 +1489,7 @@ MonoBehaviour:
   coinsText: {fileID: 126380986}
   inGame: 0
   restartButton: {fileID: 1913243227}
-  menuButton: {fileID: 0}
+  menuButton: {fileID: 1904564471}
   immortality: {fileID: 11400000, guid: be13613ebe15d6046a1da11381195c1c, type: 2}
   magnet: {fileID: 11400000, guid: a30fa6e6f6f7d2e40b017e414f0dbf84, type: 2}
 --- !u!4 &1858671317
