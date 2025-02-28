@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4448c39623ec1f4a85350c8c67c833f, type: 3}
   m_Name: Magnet
   m_EditorClassIdentifier: 
+  UpgradeCosts: 0200000004000000
+  currentLevel: 3
+  maxLevel: 3
   isActive: 0
   duration: {fileID: 11400000, guid: c2168e684447ddf4bbffc424ead1700a, type: 2}
   speed: {fileID: 11400000, guid: c9b080152ccd653499bd0dcafac11b0b, type: 2}

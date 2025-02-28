@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    public GameObject menuPanel;
+    public GameObject storePanel;
+
     public Text coinText;
     public Text soundText;
 
@@ -39,5 +42,18 @@ public class MenuManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OpenStore()
+    {
+        Debug.Log("Klik");
+
+        menuPanel.SetActive(false);
+        storePanel.SetActive(true);
+    }
+    public void CloseStore()
+    {
+        menuPanel.SetActive(true);
+        storePanel.SetActive(false);
     }
 }

@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bf1c1d4b573da4c965d7433ec9162e, type: 3}
   m_Name: ImmortalitySpeed
   m_EditorClassIdentifier: 
-  value: 0.1
+  values:
+  - 0.1
+  - 0.2
+  - 0.3

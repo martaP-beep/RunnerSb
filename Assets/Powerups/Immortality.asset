@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ff6b316accdad499ada84dcb26d870, type: 3}
   m_Name: Immortality
   m_EditorClassIdentifier: 
+  UpgradeCosts: 0200000004000000
+  currentLevel: 3
+  maxLevel: 3
   isActive: 1
   duration: {fileID: 11400000, guid: f91ae4af65aa7744eb4073c2a824e64c, type: 2}
   speed: {fileID: 11400000, guid: f2c911c6d61aa6244811e04609e7be92, type: 2}
