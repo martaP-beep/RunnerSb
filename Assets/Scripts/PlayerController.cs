@@ -42,10 +42,12 @@ public class PlayerController : MonoBehaviour
         {
             if (!jumped)
             {
+                SoundManager.instance.PlayJump();
                 rb.velocity = (new Vector2(0, jumpForce));
                 jumped = true;
             }
             else if (!doubleJumped) {
+                SoundManager.instance.PlayJump();
                 rb.velocity = (new Vector2(0, jumpForce));
                 doubleJumped = true;
             }
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Coin"))
         {
+            SoundManager.instance.PlayCoin();
             Destroy(collision.gameObject);
             GameManager.instance.CoinCollected();
         }

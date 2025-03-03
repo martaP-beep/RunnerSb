@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString("0");
     }
 
-    public void CoinCollected(int value = 1)
+    public void CoinCollected(int value = 500)
     {
         coins += value;
         PlayerPrefs.SetInt("coins", coins);

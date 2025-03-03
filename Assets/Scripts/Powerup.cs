@@ -70,4 +70,27 @@ public abstract class Powerup : ScriptableObject
         }
     }
 
+    public override string ToString()
+    {
+        string text = $"{name}\n Lvl.{currentLevel}";
+        if (IsMaxedOut())
+        {
+            text += " MAX";
+        }
+        return text;
+
     }
+    public string UpgradeCostString()
+    {
+        if (IsMaxedOut())
+        {
+            return "MAXED OUT";
+        }
+        else
+        {
+            return $"UPGRADE \nCOST: {GetNextUpgradeCost()}";
+        }
+    }
+
+
+}

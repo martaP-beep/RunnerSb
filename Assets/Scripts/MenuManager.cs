@@ -14,6 +14,15 @@ public class MenuManager : MonoBehaviour
 
     int coins;
 
+    public Text magnetLevelText;
+    public Text magnetButtonText;
+
+    public Text immortalityLevelText;
+    public Text immortalityButtonText;
+
+    public Powerup magnet;
+    public Powerup immortality;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +40,49 @@ public class MenuManager : MonoBehaviour
     void UpdateUI()
     {
         coinText.text = "Coins: " + coins;
+
+        immortalityLevelText.text = immortality.ToString();
+        immortalityButtonText.text = immortality.UpgradeCostString();
+
+        magnetLevelText.text = magnet.ToString();
+        magnetButtonText.text = magnet.UpgradeCostString();
+
+        if (SoundManager.instance.GetMuted())
+        {
+            soundText.text = "Turn on sound";
+        }
+        else
+        {
+            soundText.text = "Turn off sound";
+        }
+
+    }
+
+    public void SoundButton()
+    {
+        SoundManager.instance.ToggleMuted();
+        UpdateUI();
+    }
+
+
+    void UpgradePowerup(Powerup powerup)
+    {
+        if(coins >= powerup.GetNextUpgradeCost() 
+            && powerup.IsMaxedOut() == false)
+        {
+            powerup.Upgrade();
+            coins -= powerup.GetNextUpgradeCost();
+            PlayerPrefs.SetInt("coins", coins);
+            UpdateUI();
+        }
+    }
+    public void UpgradeMagnetButton()
+    {
+        UpgradePowerup(magnet);
+    }
+    public void UpgradeImmortality()
+    {
+        UpgradePowerup(immortality);
     }
 
     public void PlayButton()
